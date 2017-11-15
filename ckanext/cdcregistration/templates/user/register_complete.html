@@ -1,0 +1,20 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('Logged Out') }}{% endblock %}
+
+{% set crtUser = '%s'|format(h.getPostRequestParamValue(request.body,"name")) %}
+
+{% block primary_content %}
+  <section class="module">
+    <div class="module-content">
+      <h1 class="page-heading">
+      {{ h.getLangLabel("Hi! " + crtUser + " has been registered on the platform","您好，帳號 " + crtUser + " 已於平台註冊完成") }}
+      </h1>
+      {# register document #}
+      {% snippet 'snippets/register.html', reqBody = request.body %}
+      <hr /> 
+      {# contact document #}
+      {% snippet 'snippets/contact.html' %}
+    </div>
+  </section>
+{% endblock %}
