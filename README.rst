@@ -177,11 +177,11 @@ Before installing ckanext-cdcregistration, several source codes need to be modif
          result_dict['email_hash'] = user.email_hash
          result_dict['number_of_edits'] = user.number_of_edits()
 
-     # customize to get organ value
-     p2l = py2psql("ip","port","dbname","tbname","user","pass")
-     result_dict.setdefault('organ', p2l.select({"email": user.email},["organ"],asdict=True)[0]["organ"])
+         # customize to get organ value
+         p2l = py2psql("ip","port","dbname","tbname","user","pass")
+         result_dict.setdefault('organ', p2l.select({"email": user.email},["organ"],asdict=True)[0]["organ"])
 
-     result_dict['number_created_packages'] = user.number_created_packages(
+         result_dict['number_created_packages'] = user.number_created_packages(
        ...
 
 ------------
